@@ -12,32 +12,23 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
+
 import java.util.Properties;
 
 import static com.dz.tele2.config.PersisntenceConfigConst.*;
 
 /**
- * Created by Alex on 26.09.15.
+ * Created by Alex on 29.09.15.
  */
 @Configuration
-@EnableTransactionManagement
+@PropertySource("classpath:db_test.properties")
 @ComponentScan(basePackages = {"com.dz.tele2.entity"})
 @EnableJpaRepositories(basePackages = {"com.dz.tele2.repository"})
-@PropertySource("classpath:db.properties")
-public class DataSourceConfig {
+public class PersistenceContext {
 
-    /**
-    This file used for configuration of database layer of application.
-    It enables transaction management and Spring JPA Repositories.
-    Also defines beans for ORM working.
-    This class loaded by defining it in ServletInitializer class at "web" module.
-     */
-
-    @Resource
+    @Autowired
     private Environment environment;
 
     /**
