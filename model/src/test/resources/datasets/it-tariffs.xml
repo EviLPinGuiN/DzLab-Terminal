@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <Tariffs id="1" name="First"/>
+    <Phone_number number="9274664585" type="COMMON" tariff_id="1"/>
+</dataset>
